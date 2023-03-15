@@ -1,35 +1,39 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<locale.h>
+#include<math.h>
+
+//Atividade executada dia 09/03/2023 ás 10:08
+//Atividade da Lista 4
+/*
+	2 - TENTANDO DESCOBRIR SE UM DADO ERA VICIADO, UM DONO DE CASSINO,
+	HONESTO O LANÇOU N VEZES. DADOS OS N RESULTADOS DOS LANÇAMENTOS
+	DETERMINAR O NÚMERO DE OCORRÊNCIA DE CADA FACE.
+*/
 
 
-// Atividade executada dia: 02/03/2023 ás 08:52
-
-int main(){
-    setlocale(LC_ALL, "Portuguese");
-	printf("\n");
-	printf("*********************************************************************\n");
-	printf("*                     EXERCÍCIO DA LISTA-3                          *\n");	
-    printf("*                                                                   *\n");
-    printf("*   2- FAÇA UM PROGRAMA QUE CALCULA E ESCREVE A SEGUINTE SOMA.      *\n");
-	printf("*      1/1 + 3/2 + 5/3 + 7/4 + ...+ 99/50.                          *\n");
-	printf("*                                                                   *\n");
-	printf("*********************************************************************\n");
+ 
+int main()
+{
+	//DECLARAÇÃO DAS VARIÁVEIS
+	setlocale(LC_ALL,"Portuguese");
+	int n, i, vetor[6], lado;
+	//ENTRADA DE VALORES
+	printf(" Digite o numero de vezes que o dado foi lançado:");
+	scanf("%d", &n);
 	
-	
-	int numerador = -1;
-	int denominador;
-	float resp = 0;
-	
-	printf("\n");
-	
-	for(denominador = 1; denominador <= 50; denominador++){
-		numerador = numerador + 2;
-		resp = resp + (numerador/denominador);
+	for(i = 1; i <=6; i++){
+		vetor[i]= 0;
 	}
-	
-	printf(" O resultado será: %.2f", resp);
-	
-	printf("\n");
+	for(i = 1; i <= n; i++){
+		printf(" Digite a face do dado:");
+		scanf("%d", &lado);
+		vetor[lado]++;
+	}
+	for(i = 1; i<= n; i++){
+		if(vetor[i]  != 0){
+			printf(" A face %d caiu %d vezes. \n", i, vetor[i]);
+		}
+	}
 	return 0;
 }
